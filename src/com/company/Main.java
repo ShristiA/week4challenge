@@ -9,6 +9,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
 
+
+
+
         String userAns = "Y";
 
         while(userAns.equalsIgnoreCase("Y")){
@@ -17,14 +20,14 @@ public class Main {
 
 
             if (userInput > 70) {
-                System.out.println("The temperature in Celsius is " + "%.2f" + celsius(userInput));
+                System.out.printf("The temperature in Celsius is " + String.format("%.2f",celsius(userInput))+"\n");
                 System.out.println("The weather is a bit warm for fall");
 
             } else if (userInput <= 70 && userInput >= 45) {
-                System.out.println("The temperature in Celsius is " + "%.2f" + celsius(userInput));
+                System.out.printf("The temperature in Celsius is " +  String.format("%.2f",celsius(userInput)) + "\n");
                 System.out.println("Today's weather is a perfect fall day for a cup of " + randomDrinks() + "\n The color of the leaves are " + randomColors());
             } else {
-                System.out.println("The temperature in Celsius is " + "%.2f" + celsius(userInput));
+                System.out.printf("The temperature in Celsius is " + String.format("%.2f",celsius(userInput)) +"\n");
                 System.out.println("The weather is a bit chilly for fall.");
             }
             userInput = 0;
@@ -35,16 +38,8 @@ public class Main {
             if(userAns.equalsIgnoreCase("n")){
                 System.out.println("Done");
             }
-
         }
-
-
-
     }
-
-
-
-
 
     public static String randomColors() {
         ArrayList<String> colors = new ArrayList<>();
@@ -74,8 +69,9 @@ public class Main {
         return(drinkItem);
     }
     public static double celsius(int userInput){
-        double celsius1 = userInput *(-17.22);
-        return celsius1;
+        double cl = ((userInput -32f)*5)/9;
+
+        return cl;
     }
 
 }
